@@ -19,16 +19,29 @@ package com.app.sharedprefdelegates
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
+// Making global ref of Gson, as it caches the string so to avoid multiple cache entry and reusing
+// the same cache
+@PublishedApi
+internal val gson = Gson()
+
+/**
+ * @receiver Any object that need to be converted to string
+ * @return Returns Json string of the object or null if any error happens
+ */
 @PublishedApi
 internal fun Any?.toStringUsingGson(): String? {
     this ?: return null
-    return Gson().toJson(this)
+    return gson.toJson(this)
 }
 
+/**
+ * @receiver String that need to be parsed in object
+ * @return Object parsed from string or null in case of any error
+ */
 @PublishedApi
 internal inline fun <reified T> String?.fromJson(): T? = try {
     this?.let {
-        Gson().fromJson<T>(this, object : TypeToken<T>() {}.type)
+        gson.fromJson<T>(this, object : TypeToken<T>() {}.type)
     } ?: run {
         null
     }

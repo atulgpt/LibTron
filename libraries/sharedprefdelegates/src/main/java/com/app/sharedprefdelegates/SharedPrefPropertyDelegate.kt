@@ -29,7 +29,16 @@ private typealias SharedPrefReader<R> = SharedPreferences.(name: String, default
 internal typealias SharedPrefReaderDefaultNotNull<R> = SharedPreferences.(name: String, defaultValue: R) -> R
 internal typealias SharedPrefWriter<R> = SharedPreferences.Editor.(name: String, value: R) -> Any?
 
-
+/**
+ * @param prefs [SharedPreferences] used for this property delegation
+ * @param sharedPrefReader To read data from the [SharedPreferences]
+ * @param sharedPrefWriter To write data to the [SharedPreferences]
+ * @param typeReader To read the data from [sharedPrefReader]
+ * @param typeWriter To convert the data suitable for writing using [sharedPrefWriter]
+ * @param name Name of the key
+ * @param defaultValue default value of the, defaults to {@code null}
+ * @see ReadWriteProperty
+ */
 @PublishedApi
 internal inline fun <T, R> SharedPrefPropertyDelegate(
         prefs: SharedPreferences,
@@ -40,7 +49,7 @@ internal inline fun <T, R> SharedPrefPropertyDelegate(
         crossinline hasProperty: SharedPreferences.(String) -> Boolean,
         name: String,
         defaultValue: T? = null,
-) = object : ReadWriteProperty<Any?, T?> {
+): ReadWriteProperty<Any?, T?> = object : ReadWriteProperty<Any?, T?> {
     override fun getValue(thisRef: Any?, property: KProperty<*>): T? {
         return if (prefs.hasProperty(name)) {
             typeReader(prefs.sharedPrefReader(name, null))
@@ -58,6 +67,16 @@ internal inline fun <T, R> SharedPrefPropertyDelegate(
     }
 }
 
+/**
+ * @param prefs [SharedPreferences] used for this property delegation
+ * @param sharedPrefReader To read data from the [SharedPreferences]
+ * @param sharedPrefWriter To write data to the [SharedPreferences]
+ * @param typeReader To read the data from [sharedPrefReader]
+ * @param typeWriter To convert the data suitable for writing using [sharedPrefWriter]
+ * @param name Name of the key
+ * @param defaultValue default value of the
+ * @see ReadWriteProperty
+ */
 @PublishedApi
 internal inline fun <T, R> SharedPrefPropertyDelegateDefaultNotNull(
         prefs: SharedPreferences,
@@ -67,7 +86,7 @@ internal inline fun <T, R> SharedPrefPropertyDelegateDefaultNotNull(
         crossinline typeWriter: TypeWriter<T, R>,
         name: String,
         defaultValue: T,
-) = object : ReadWriteProperty<Any?, T> {
+): ReadWriteProperty<Any?, T> = object : ReadWriteProperty<Any?, T> {
     override fun getValue(thisRef: Any?, property: KProperty<*>): T {
         return typeReader(prefs.sharedPrefReader(name, typeWriter(defaultValue)))
     }

@@ -23,6 +23,13 @@ import android.util.Log
 import com.app.sharedprefdelegates.*
 import kotlin.properties.ReadWriteProperty
 
+/**
+ * To be used to get the delegated property to access the shared pref [String] value
+ * @param name Name of the [SharedPreferences] key
+ * @param defaultValue Default value to be used when key is absent, defaults to null and hence the property
+ *          becomes nullable
+ * @return Delegated property [PrimitiveGeneric]
+ */
 public inline fun SharedPreferences.String(
         name: String,
         defaultValue: String? = null,
@@ -34,6 +41,13 @@ public inline fun SharedPreferences.String(
         defaultValue = defaultValue
 )
 
+/**
+ * To be used to get the delegated property to access the shared pref [String] value
+ * @param name Name of the [SharedPreferences] key
+ * @param defaultValue Default value to be used when key is absent, defaults to "" string and hence the property
+ *          becomes not-nullable
+ * @return Delegated property [PrimitiveGeneric]
+ */
 public inline fun SharedPreferences.StringNotNull(
         name: String,
         defaultValue: String = "",
@@ -48,6 +62,12 @@ public inline fun SharedPreferences.StringNotNull(
         defaultValue = defaultValue
 )
 
+/**
+ * To be used to get the delegated property to access the shared pref [Int] value
+ * @param name Name of the [SharedPreferences] key
+ * @param defaultValue Default value to be used when key is absent, defaults to -1
+ * @return Delegated property [PrimitiveGeneric]
+ */
 public inline fun SharedPreferences.Int(
         name: String,
         defaultValue: Int = -1,
@@ -59,6 +79,12 @@ public inline fun SharedPreferences.Int(
         defaultValue = defaultValue
 )
 
+/**
+ * To be used to get the delegated property to access the shared pref [Long] value
+ * @param name Name of the [SharedPreferences] key
+ * @param defaultValue Default value to be used when key is absent, defaults to -1L
+ * @return Delegated property [PrimitiveGeneric]
+ */
 public inline fun SharedPreferences.Long(
         name: String,
         defaultValue: Long = -1L,
@@ -70,6 +96,12 @@ public inline fun SharedPreferences.Long(
         defaultValue = defaultValue
 )
 
+/**
+ * To be used to get the delegated property to access the shared pref [Float] value
+ * @param name Name of the [SharedPreferences] key
+ * @param defaultValue Default value to be used when key is absent, defaults to -1F
+ * @return Delegated property [PrimitiveGeneric]
+ */
 public inline fun SharedPreferences.Float(
         name: String,
         defaultValue: Float = -1F,
@@ -81,6 +113,12 @@ public inline fun SharedPreferences.Float(
         defaultValue = defaultValue
 )
 
+/**
+ * To be used to get the delegated property to access the shared pref [Boolean] value
+ * @param name Name of the [SharedPreferences] key
+ * @param defaultValue Default value to be used when key is absent, defaults to false
+ * @return Delegated property [PrimitiveGeneric]
+ */
 public inline fun SharedPreferences.Boolean(
         name: String,
         defaultValue: Boolean = false,
@@ -92,6 +130,16 @@ public inline fun SharedPreferences.Boolean(
         defaultValue = defaultValue
 )
 
+/**
+ * To be used to get the delegated property to access the shared pref [Any] value
+ * The object should be allowed to serialized by Gson for example it should not have any inner class which is not static
+ * @param name Name of the key
+ * @param defaultValue Default value, defaults to {@code null}
+ * @see ObjectNotNull for non-null cases
+ * @return Delegated property [SharedPrefPropertyDelegate]
+ * @see toStringUsingGson
+ * @see fromJson
+ */
 public inline fun <reified M> SharedPreferences.Object(
         name: String,
         defaultValue: M? = null,
@@ -111,6 +159,16 @@ public inline fun <reified M> SharedPreferences.Object(
         hasProperty = SharedPreferences::contains
 )
 
+/**
+ * To be used to get the delegated property to access the shared pref [Any] value
+ * The object should be allowed to serialized by Gson for example it should not have any inner class which is not static
+ * @param name Name of the key
+ * @param defaultValue Default value, this is non-nullable version
+ * @see SharedPreferences.Object for null cases
+ * @return Delegated property [SharedPrefPropertyDelegate]
+ * @see toStringUsingGson
+ * @see fromJson
+ */
 public inline fun <reified M> SharedPreferences.ObjectNotNull(
         name: String,
         defaultValue: M
@@ -132,7 +190,17 @@ public inline fun <reified M> SharedPreferences.ObjectNotNull(
         }
 )
 
-public inline fun <T> SharedPreferences.PrimitiveGeneric(
+/**
+ * Helper function to make the delegate property for primitive type in [SharedPreferences]
+ * @param prefs [SharedPreferences] which will be used to access the property
+ * @param sharedPrefReader CrossInline(non local return not allowed) extraReader that is used to read from [SharedPreferences]
+ * @param sharedPrefWriter CrossInline(non local return not allowed) extraReader that is used to write to [SharedPreferences]
+ * @param name Name of the key
+ * @param defaultValue Default value
+ * @return Delegated property [SharedPrefPropertyDelegateDefaultNotNull]
+ */
+@PublishedApi
+internal inline fun <T> SharedPreferences.PrimitiveGeneric(
         prefs: SharedPreferences,
         crossinline sharedPrefReader: SharedPrefReaderDefaultNotNull<T>,
         crossinline sharedPrefWriter: SharedPrefWriter<T>,

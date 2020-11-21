@@ -17,16 +17,22 @@
 
 package com.app.uistatelib
 
+import com.app.uistatelib.UiState.Failure
 import com.app.uistatelib.model.BaseNetworkResp
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * A discriminated union that encapsulates a successful outcome with a value of type [M]
+ * or a failure with a string [Failure.errorCode] representing error case, a nullable [Throwable]
+ * exception and few more properties or a loading/initial state of the operation
+ */
 public sealed class UiState<out M> {
 
     public data class Success<out M>(val value: M) : UiState<M>()
 
-    public data class Loading(val optionalMessage: String? = null) : UiState<Nothing>()
+    public object Loading : UiState<Nothing>()
 
     public class Failure(
             public val errorCode: String,
@@ -44,31 +50,39 @@ public sealed class UiState<out M> {
     }
 }
 
+/**
+ * Performs the [successBlock] function for the encapsulated value [M] if this instance represents [success][UiState.Success]
+ * or performs the [failureBlock] function for the encapsulated [UiState.Failure] if it is [failure][UiState.Failure].
+ *
+ * Note, that this function rethrows any [Throwable] exception thrown by [successBlock] or by [failureBlock] function.
+ */
 @OptIn(ExperimentalContracts::class)
 public inline fun <M> UiState<M>.fold(
-        failureBlock: (UiState<M>) -> Unit = { },
+        failureBlock: (Failure) -> Unit = { },
         successBlock: (value: M) -> Unit,
 ): UiState<M> {
     contract {
         callsInPlace(failureBlock, InvocationKind.AT_MOST_ONCE)
         callsInPlace(successBlock, InvocationKind.AT_MOST_ONCE)
     }
-
     when (this) {
         is UiState.Success -> {
             successBlock(this.value)
         }
         is UiState.Loading -> {
-            // no-op
+            /* no-op */
         }
-        is UiState.Failure -> {
+        is Failure -> {
             failureBlock(this)
         }
     }
-
     return this
 }
 
+/**
+ * Performs the given [successBlock] on the encapsulated value if this instance represents [success][UiState.Success].
+ * @return the original `UiState` unchanged.
+ */
 @OptIn(ExperimentalContracts::class)
 public inline fun <M> UiState<M>.onSuccess(
         successBlock: (value: M) -> Unit,
@@ -81,39 +95,48 @@ public inline fun <M> UiState<M>.onSuccess(
             successBlock(this.value)
         }
         is UiState.Loading -> {
-            // no-op
+            /* no-op */
         }
-        is UiState.Failure -> {
-            // no-op
+        is Failure -> {
+            /* no-op */
         }
     }
-
     return this
 }
 
+/**
+ * Performs the given [failureBlock] on the [UiState.Failure] value if this instance represents [failure][UiState.Failure].
+ * @return the original `UiState` unchanged.
+ */
 @OptIn(ExperimentalContracts::class)
 public inline fun <M> UiState<M>.onFailure(
-        failureBlock: (UiState.Failure) -> Unit,
+        failureBlock: (Failure) -> Unit,
 ): UiState<M> {
     contract {
         callsInPlace(failureBlock, InvocationKind.AT_MOST_ONCE)
     }
     when (this) {
         is UiState.Success -> {
-            // no-op
+            /* no-op */
         }
         is UiState.Loading -> {
-            // no-op
+            /* no-op */
         }
-        is UiState.Failure -> {
+        is Failure -> {
             failureBlock(this)
         }
     }
-
     return this
 }
 
-
+/**
+ * Returns the encapsulated result of the given [transform] function applied to the encapsulated value
+ * if this instance represents [success][UiState.Success] or the
+ * original encapsulated [UiState] if it is [failure][UiState.Failure] or [loading][UiState.Loading].
+ *
+ * Note, that this function rethrows any [Throwable] exception thrown by [transform] function.
+ * See [flatMap] for an alternative that encapsulates exceptions and loading state.
+ */
 @OptIn(ExperimentalContracts::class)
 public inline fun <M, T> UiState<M>.map(
         transform: (M) -> T,
@@ -126,44 +149,39 @@ public inline fun <M, T> UiState<M>.map(
             UiState.Success(transform(this.value))
         }
         is UiState.Loading -> {
-            UiState.Loading(this.optionalMessage)
+            this
         }
-        is UiState.Failure -> {
+        is Failure -> {
             this
         }
     }
 }
 
+/**
+ * Returns the encapsulated result of the given [transform] function applied to the encapsulated value
+ * if this instance represents [success][UiState.Success] or
+ * original encapsulated [UiState] if it is [failure][UiState.Failure] or [loading][UiState.Loading].
+ *
+ * This function catches any [UiState] failure or loading state emitted by [transform] function and encapsulates it as a corresponding [UiState].
+ * See [map] for an alternative that rethrows exceptions from `transform` function.
+ */
 @OptIn(ExperimentalContracts::class)
 public inline fun <M, T> UiState<M>.flatMap(
-        errorHandler: (response: UiState<M>, secondResponseFailure: UiState.Failure) -> Unit = { _: UiState<M>, _: UiState.Failure -> },
         transform: (M) -> BaseNetworkResp<T>,
 ): UiState<T> {
     contract {
         callsInPlace(transform, InvocationKind.AT_MOST_ONCE)
-        callsInPlace(errorHandler, InvocationKind.AT_MOST_ONCE)
     }
     return when (this) {
         is UiState.Success -> {
-            val secondResponse = tryWithUiState {
+            tryWithUiState {
                 transform(this.value)
-            }
-            when (secondResponse) {
-                is UiState.Success -> {
-                    UiState.Success(secondResponse.value)
-                }
-                is UiState.Loading -> {
-                    UiState.Loading()
-                }
-                is UiState.Failure -> {
-                    secondResponse
-                }
             }
         }
         is UiState.Loading -> {
-            UiState.Loading(this.optionalMessage)
+            this
         }
-        is UiState.Failure -> {
+        is Failure -> {
             this
         }
     }

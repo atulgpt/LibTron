@@ -18,6 +18,13 @@
 
 package com.app.uistatelib.model
 
+/**
+ * @param httpCode Http status code for the response
+ * @param data Data delivered by the network call
+ * @param message Optional message for this response
+ * @param displayMessage Optional message that can be displayed to the user
+ * @param errors [List] of errors in the network call
+ */
 public class BaseNetworkResp<M>(
         public val httpCode: Int?,
         public val data: M,
