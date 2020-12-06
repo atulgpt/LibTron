@@ -18,7 +18,8 @@
 
 buildscript {
     ext {
-        kotlin_version = '1.4.10'
+        kotlin_version = '1.4.20'
+        coroutine_version = '1.4.2'
         compile_sdk_version = 29
         target_sdk_version = 29
     }

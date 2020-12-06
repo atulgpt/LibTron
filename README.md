@@ -6,9 +6,9 @@ Each library has been designed to have a **small footprint** and be as **efficie
 
 ## All the Android libraries
 
-- **[SharedprefDelegates:](libraries/sharedprefdelegates)** Type safe ways to read and write from Sharedpreferences in Android.
-- **[UiStateLib:](libraries/uistatelib)** Easy way to represent Network responses in Loading, Success and Failure state.
-- **[PropertyDelegates:](libraries/propertydelegates)** Type safe ways to access properties from Intent and Bundle.
+- **[SharedprefDelegates:](libraries/sharedpref-delegates)** Type safe ways to read and write from Sharedpreferences in Android.
+- **[UiStateLib:](libraries/uistate-lib)** Easy way to represent Network responses in Loading, Success and Failure state.
+- **[PropertyDelegates:](libraries/property-delegates)** Type safe ways to access properties from Intent and Bundle.
 
 ## Download
 
@@ -19,7 +19,7 @@ Project `build.gradle`
 ```groovy
 allprojects {
 	repositories {
-		...
+		//...
 		maven { url 'https://jitpack.io' }
 	}
 }
@@ -29,21 +29,21 @@ Gradle dependency for SharedprefDelegates:
 
 App `build.gradle`
 ```groovy
-implementation 'com.github.atulgpt.LibTron:sharedprefdelegates:0.0.2'
+implementation 'com.github.atulgpt.LibTron:sharedpref-delegates:0.0.3'
 ```
 
 Gradle dependency for UiStateLib:
 
 App `build.gradle`
 ```groovy
-implementation 'com.github.atulgpt.LibTron:uistatelib:0.0.2'
+implementation 'com.github.atulgpt.LibTron:uistate-lib:0.0.3'
 ```
 
 Gradle dependency for PropertyDelegates:
 
 App `build.gradle`
 ```groovy
-implementation 'com.github.atulgpt.LibTron:propertydelegates:0.0.2'
+implementation 'com.github.atulgpt.LibTron:property-delegates:0.0.3'
 ```
 
 ## New versions notifications
