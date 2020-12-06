@@ -9,6 +9,7 @@ Each library has been designed to have a **small footprint** and be as **efficie
 - **[SharedprefDelegates:](libraries/sharedpref-delegates)** Type safe ways to read and write from Sharedpreferences in Android.
 - **[UiStateLib:](libraries/uistate-lib)** Easy way to represent Network responses in Loading, Success and Failure state.
 - **[PropertyDelegates:](libraries/property-delegates)** Type safe ways to access properties from Intent and Bundle.
+- **[CoroutineFirebaseAdapter:](libraries/coroutine-fire-adapter)** Coroutine adapters to convert Firestore values to Flow/suspend function.
 
 ## Download
 
@@ -44,6 +45,13 @@ Gradle dependency for PropertyDelegates:
 App `build.gradle`
 ```groovy
 implementation 'com.github.atulgpt.LibTron:property-delegates:0.0.3'
+```
+
+Gradle dependency for CoroutineFirebaseAdapter:
+
+App `build.gradle`
+```groovy
+implementation 'com.github.atulgpt.LibTron:coroutine-fire-adapter:0.0.3'
 ```
 
 ## New versions notifications
