@@ -1,0 +1,10 @@
+//[property-delegates](../../index.md)/[com.app.propertydelegates.bundle.base](index.md)/[Int](-int.md)
+
+# Int
+
+[androidJvm]\
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Int](-int.md)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)?>
+
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Int](-int.md)(defaultValue: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html), name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)>
+
+inline fun <[T](-int.md)> [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Int](-int.md)(crossinline reader: TypeReader<[T](-int.md), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)?>, crossinline writer: TypeWriter<[T](-int.md), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)?>, name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [T](-int.md)>

@@ -1,0 +1,10 @@
+//[property-delegates](../../index.md)/[com.app.propertydelegates.bundle.base](index.md)/[IntArray](-int-array.md)
+
+# IntArray
+
+[androidJvm]\
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[IntArray](-int-array.md)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [IntArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)?>
+
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[IntArray](-int-array.md)(defaultValue: [IntArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html), name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [IntArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)>
+
+inline fun <[T](-int-array.md)> [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[IntArray](-int-array.md)(crossinline reader: TypeReader<[T](-int-array.md), [IntArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)?>, crossinline writer: TypeWriter<[T](-int-array.md), [IntArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html)?>, name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [T](-int-array.md)>

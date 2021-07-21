@@ -1,0 +1,10 @@
+//[property-delegates](../../index.md)/[com.app.propertydelegates.intent.base](index.md)/[String](-string.md)
+
+# String
+
+[androidJvm]\
+inline fun [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[String](-string.md)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)?>
+
+inline fun [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[String](-string.md)(defaultValue: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html), name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)>
+
+inline fun <[T](-string.md)> [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[String](-string.md)(crossinline reader: TypeReader<[T](-string.md), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)?>, crossinline writer: TypeWriter<[T](-string.md), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)?>, name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [T](-string.md)>

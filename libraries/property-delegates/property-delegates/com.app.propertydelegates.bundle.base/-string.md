@@ -1,0 +1,10 @@
+//[property-delegates](../../index.md)/[com.app.propertydelegates.bundle.base](index.md)/[String](-string.md)
+
+# String
+
+[androidJvm]\
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[String](-string.md)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)?>
+
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[String](-string.md)(defaultValue: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html), name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)>
+
+inline fun <[T](-string.md)> [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[String](-string.md)(crossinline reader: TypeReader<[T](-string.md), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)?>, crossinline writer: TypeWriter<[T](-string.md), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)?>, name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [T](-string.md)>

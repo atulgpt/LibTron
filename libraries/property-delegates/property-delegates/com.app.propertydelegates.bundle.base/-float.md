@@ -1,0 +1,10 @@
+//[property-delegates](../../index.md)/[com.app.propertydelegates.bundle.base](index.md)/[Float](-float.md)
+
+# Float
+
+[androidJvm]\
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Float](-float.md)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [Float](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)?>
+
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Float](-float.md)(defaultValue: [Float](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html), name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [Float](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)>
+
+inline fun <[T](-float.md)> [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Float](-float.md)(crossinline reader: TypeReader<[T](-float.md), [Float](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)?>, crossinline writer: TypeWriter<[T](-float.md), [Float](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)?>, name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [T](-float.md)>

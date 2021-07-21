@@ -1,0 +1,10 @@
+//[property-delegates](../../index.md)/[com.app.propertydelegates.intent.base](index.md)/[Char](-char.md)
+
+# Char
+
+[androidJvm]\
+inline fun [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Char](-char.md)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [Char](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)?>
+
+inline fun [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Char](-char.md)(defaultValue: [Char](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html), name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [Char](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)>
+
+inline fun <[T](-char.md)> [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Char](-char.md)(crossinline reader: TypeReader<[T](-char.md), [Char](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)?>, crossinline writer: TypeWriter<[T](-char.md), [Char](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)?>, name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [T](-char.md)>

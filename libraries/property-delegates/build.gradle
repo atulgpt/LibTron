@@ -16,9 +16,14 @@
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.dokka'
 
 apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.atulgpt'
+
+tasks.named("dokkaGfm") {
+    outputDirectory.set(getProjectDir())
+}
 
 android {
     compileSdkVersion rootProject.ext.compile_sdk_version

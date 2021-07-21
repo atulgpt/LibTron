@@ -1,0 +1,7 @@
+$dokka.format:gfm-v1
+$dokka.linkExtension:md
+$dokka.location:com.app.coroutinefireadapter////PointingToDeclaration/coroutine-fire-adapter/com.app.coroutinefireadapter/index.md
+$dokka.location:com.app.coroutinefireadapter//toValue/com.google.firebase.firestore.DocumentReference#com.google.firebase.firestore.FieldPath?#com.google.firebase.firestore.Source/PointingToDeclaration/coroutine-fire-adapter/com.app.coroutinefireadapter/to-value.md
+$dokka.location:com.app.coroutinefireadapter//toValueFlow/com.google.firebase.firestore.DocumentReference#com.google.firebase.firestore.FieldPath?#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/coroutine-fire-adapter/com.app.coroutinefireadapter/to-value-flow.md
+com.app.coroutinefireadapter
+

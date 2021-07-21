@@ -26,16 +26,20 @@ buildscript {
         androidx_test_runner = '1.4.0'
         compile_sdk_version = 29
         target_sdk_version = 29
+        dokka_version = '1.5.0'
     }
     repositories {
         google()
+        mavenCentral()
         jcenter()
-
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+
+        // Make sure you apply Dokka after com.android.library and kotlin-android
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:$dokka_version")
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -46,7 +50,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-
     }
 }
 

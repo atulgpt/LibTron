@@ -1,0 +1,24 @@
+$dokka.format:gfm-v1
+$dokka.linkExtension:md
+$dokka.location:com.app.uistatelib////PointingToDeclaration/uistate-lib/com.app.uistatelib/index.md
+$dokka.location:com.app.uistatelib//PREVIOUS_OP_FAILED/#/PointingToDeclaration/uistate-lib/com.app.uistatelib/-p-r-e-v-i-o-u-s_-o-p_-f-a-i-l-e-d.md
+$dokka.location:com.app.uistatelib//flatMap/com.app.uistatelib.UiState[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/uistate-lib/com.app.uistatelib/flat-map.md
+$dokka.location:com.app.uistatelib//fold/com.app.uistatelib.UiState[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/uistate-lib/com.app.uistatelib/fold.md
+$dokka.location:com.app.uistatelib//map/com.app.uistatelib.UiState[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/uistate-lib/com.app.uistatelib/map.md
+$dokka.location:com.app.uistatelib//onFailure/com.app.uistatelib.UiState[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/uistate-lib/com.app.uistatelib/on-failure.md
+$dokka.location:com.app.uistatelib//onSuccess/com.app.uistatelib.UiState[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/uistate-lib/com.app.uistatelib/on-success.md
+$dokka.location:com.app.uistatelib/UiState.Companion///PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-companion/index.md
+$dokka.location:com.app.uistatelib/UiState.Companion/CLIENT_ERROR/#/PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-companion/-c-l-i-e-n-t_-e-r-r-o-r.md
+$dokka.location:com.app.uistatelib/UiState.Companion/NETWORK_ERROR/#/PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-companion/-n-e-t-w-o-r-k_-e-r-r-o-r.md
+$dokka.location:com.app.uistatelib/UiState.Companion/SERVER_ERROR/#/PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-companion/-s-e-r-v-e-r_-e-r-r-o-r.md
+$dokka.location:com.app.uistatelib/UiState.Companion/UNKNOWN_ERROR/#/PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-companion/-u-n-k-n-o-w-n_-e-r-r-o-r.md
+$dokka.location:com.app.uistatelib/UiState.Failure///PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-failure/index.md
+$dokka.location:com.app.uistatelib/UiState.Failure/Failure/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-failure/-failure.md
+$dokka.location:com.app.uistatelib/UiState.Failure/failureValue/#/PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-failure/failure-value.md
+$dokka.location:com.app.uistatelib/UiState.Loading///PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-loading/index.md
+$dokka.location:com.app.uistatelib/UiState.Success///PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-success/index.md
+$dokka.location:com.app.uistatelib/UiState.Success/Success/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-success/-success.md
+$dokka.location:com.app.uistatelib/UiState.Success/value/#/PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/-success/value.md
+$dokka.location:com.app.uistatelib/UiState///PointingToDeclaration/uistate-lib/com.app.uistatelib/-ui-state/index.md
+com.app.uistatelib
+

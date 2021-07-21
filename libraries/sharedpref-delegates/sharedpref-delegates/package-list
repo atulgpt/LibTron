@@ -1,0 +1,13 @@
+$dokka.format:gfm-v1
+$dokka.linkExtension:md
+$dokka.location:com.app.sharedprefdelegates.operations////PointingToDeclaration/sharedpref-delegates/com.app.sharedprefdelegates.operations/index.md
+$dokka.location:com.app.sharedprefdelegates.operations//Boolean/android.content.SharedPreferences#kotlin.String#kotlin.Boolean/PointingToDeclaration/sharedpref-delegates/com.app.sharedprefdelegates.operations/-boolean.md
+$dokka.location:com.app.sharedprefdelegates.operations//Float/android.content.SharedPreferences#kotlin.String#kotlin.Float/PointingToDeclaration/sharedpref-delegates/com.app.sharedprefdelegates.operations/-float.md
+$dokka.location:com.app.sharedprefdelegates.operations//Int/android.content.SharedPreferences#kotlin.String#kotlin.Int/PointingToDeclaration/sharedpref-delegates/com.app.sharedprefdelegates.operations/-int.md
+$dokka.location:com.app.sharedprefdelegates.operations//Long/android.content.SharedPreferences#kotlin.String#kotlin.Long/PointingToDeclaration/sharedpref-delegates/com.app.sharedprefdelegates.operations/-long.md
+$dokka.location:com.app.sharedprefdelegates.operations//Object/android.content.SharedPreferences#kotlin.String#TypeParam(bounds=[kotlin.Any?])?/PointingToDeclaration/sharedpref-delegates/com.app.sharedprefdelegates.operations/-object.md
+$dokka.location:com.app.sharedprefdelegates.operations//ObjectNotNull/android.content.SharedPreferences#kotlin.String#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/sharedpref-delegates/com.app.sharedprefdelegates.operations/-object-not-null.md
+$dokka.location:com.app.sharedprefdelegates.operations//String/android.content.SharedPreferences#kotlin.String#kotlin.String?/PointingToDeclaration/sharedpref-delegates/com.app.sharedprefdelegates.operations/-string.md
+$dokka.location:com.app.sharedprefdelegates.operations//StringNotNull/android.content.SharedPreferences#kotlin.String#kotlin.String/PointingToDeclaration/sharedpref-delegates/com.app.sharedprefdelegates.operations/-string-not-null.md
+com.app.sharedprefdelegates.operations
+

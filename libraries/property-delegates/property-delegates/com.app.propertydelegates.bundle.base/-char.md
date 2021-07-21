@@ -1,0 +1,10 @@
+//[property-delegates](../../index.md)/[com.app.propertydelegates.bundle.base](index.md)/[Char](-char.md)
+
+# Char
+
+[androidJvm]\
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Char](-char.md)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [Char](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)?>
+
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Char](-char.md)(defaultValue: [Char](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html), name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [Char](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)>
+
+inline fun <[T](-char.md)> [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Char](-char.md)(crossinline reader: TypeReader<[T](-char.md), [Char](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)?>, crossinline writer: TypeWriter<[T](-char.md), [Char](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)?>, name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [T](-char.md)>

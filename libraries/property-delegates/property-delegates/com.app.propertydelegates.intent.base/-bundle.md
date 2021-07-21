@@ -1,0 +1,10 @@
+//[property-delegates](../../index.md)/[com.app.propertydelegates.intent.base](index.md)/[Bundle](-bundle.md)
+
+# Bundle
+
+[androidJvm]\
+inline fun [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Bundle](-bundle.md)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html)?>
+
+inline fun [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Bundle](-bundle.md)(defaultValue: [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html)>
+
+inline fun <[T](-bundle.md)> [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Bundle](-bundle.md)(crossinline reader: TypeReader<[T](-bundle.md), [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html)?>, crossinline writer: TypeWriter<[T](-bundle.md), [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html)?>, name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [T](-bundle.md)>

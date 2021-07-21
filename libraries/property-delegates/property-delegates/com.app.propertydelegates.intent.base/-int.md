@@ -1,0 +1,10 @@
+//[property-delegates](../../index.md)/[com.app.propertydelegates.intent.base](index.md)/[Int](-int.md)
+
+# Int
+
+[androidJvm]\
+inline fun [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Int](-int.md)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)?>
+
+inline fun [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Int](-int.md)(defaultValue: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html), name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)>
+
+inline fun <[T](-int.md)> [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Int](-int.md)(crossinline reader: TypeReader<[T](-int.md), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)?>, crossinline writer: TypeWriter<[T](-int.md), [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)?>, name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [T](-int.md)>

@@ -1,0 +1,10 @@
+//[property-delegates](../../index.md)/[com.app.propertydelegates.intent.base](index.md)/[Parcelable](-parcelable.md)
+
+# Parcelable
+
+[androidJvm]\
+inline fun <[T](-parcelable.md) : [Parcelable](https://developer.android.com/reference/kotlin/android/os/Parcelable.html)> [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Parcelable](-parcelable.md)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [T](-parcelable.md)?>
+
+inline fun <[T](-parcelable.md) : [Parcelable](https://developer.android.com/reference/kotlin/android/os/Parcelable.html)> [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Parcelable](-parcelable.md)(defaultValue: [T](-parcelable.md), name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): IntentPropertyDelegate<[T](-parcelable.md)>
+
+inline fun <[T](-parcelable.md), [R](-parcelable.md) : [Parcelable](https://developer.android.com/reference/kotlin/android/os/Parcelable.html)> [IntentExtra](../com.app.propertydelegates.intent/-intent-extra/index.md).[Parcelable](-parcelable.md)(crossinline reader: TypeReader<[T](-parcelable.md), [R](-parcelable.md)?>, crossinline writer: TypeWriter<[T](-parcelable.md), [R](-parcelable.md)?>, name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Intent](https://developer.android.com/reference/kotlin/android/content/Intent.html), [T](-parcelable.md)>

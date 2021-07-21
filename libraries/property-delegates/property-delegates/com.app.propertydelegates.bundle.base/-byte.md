@@ -1,0 +1,10 @@
+//[property-delegates](../../index.md)/[com.app.propertydelegates.bundle.base](index.md)/[Byte](-byte.md)
+
+# Byte
+
+[androidJvm]\
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Byte](-byte.md)(name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [Byte](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html)?>
+
+inline fun [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Byte](-byte.md)(defaultValue: [Byte](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html), name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [Byte](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html)>
+
+inline fun <[T](-byte.md)> [BundleExtra](../com.app.propertydelegates.bundle/-bundle-extra/index.md).[Byte](-byte.md)(crossinline reader: TypeReader<[T](-byte.md), [Byte](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html)?>, crossinline writer: TypeWriter<[T](-byte.md), [Byte](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html)?>, name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null, customPrefix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)? = null): [PropertyDelegate](../com.app.propertydelegates/-property-delegate/index.md)<[Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), [T](-byte.md)>

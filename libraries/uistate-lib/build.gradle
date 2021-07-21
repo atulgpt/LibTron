@@ -16,9 +16,14 @@
 
 apply plugin: 'java-library'
 apply plugin: 'kotlin'
+apply plugin: 'org.jetbrains.dokka'
 
 apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.atulgpt'
+
+tasks.named("dokkaGfm") {
+    outputDirectory.set(getProjectDir())
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
