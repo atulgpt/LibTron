@@ -23,6 +23,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.channels.onFailure
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.filter
@@ -82,14 +83,19 @@ public inline fun <reified M : Any> DocumentReference.toValueFlow(
 internal fun DocumentReference.toSnapshotValueFlow(includeMetaDataChanges: Boolean): Flow<DocumentSnapshot> {
     return callbackFlow {
         val valueEventListener = EventListener<DocumentSnapshot> { p0, p1 ->
-            p0?.let {
+            p0?.let { documentSnapshot ->
                 // Success case
                 Timber.d("[SnapShotValueFlow] onDataChange")
-                try {
-                    offer(it)
-                } catch (e: Throwable) {
-                    // Handle exception from the channel: failure in flow or premature closing
-                    Timber.e(RuntimeException("Failure in flow or premature closing", e))
+                trySend(documentSnapshot).onFailure {
+                    if (!this.isClosedForSend) {
+                        // Handle exception from the channel: failure in sending data in flow
+                        Timber.e(
+                            RuntimeException(
+                                "Failure in sending data in flow",
+                                it ?: RuntimeException("Null error returned")
+                            )
+                        )
+                    }
                 }
             }
 
