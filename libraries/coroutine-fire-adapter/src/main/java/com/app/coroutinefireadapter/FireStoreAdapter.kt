@@ -32,6 +32,12 @@ import timber.log.Timber
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
+/**
+ * @receiver [DocumentReference] of which value needs to be extracted
+ * @param fieldPath Optional field path which needs to be parsed instead of complete object. Default value is null
+ * @param source What should be the source of data for this [DocumentReference]. See [Source]
+ * @return Parsed model or null if data doesn't exist
+ */
 public suspend inline fun <reified M> DocumentReference.toValue(
     fieldPath: FieldPath? = null,
     source: Source = Source.SERVER,
@@ -45,6 +51,14 @@ public suspend inline fun <reified M> DocumentReference.toValue(
     }
 }
 
+/**
+ * @receiver [DocumentReference] for which we want to monitor the changes
+ * @param fieldPath Optional field path which needs to be parsed instead of complete object. Default value null
+ * @param excludeCache If true then only server value changes are propagated into the [Flow]
+ * else changes from cached value is also propagated
+ * @param includeMetaDataChanges Indicates whether metadata-only changes (that is, only [DocumentSnapshot.getMetadata] or
+ * [QuerySnapshot.getMetadata] changed) should trigger snapshot events.
+ */
 public inline fun <reified M : Any> DocumentReference.toValueFlow(
     fieldPath: FieldPath? = null,
     excludeCache: Boolean = true,

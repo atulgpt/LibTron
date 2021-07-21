@@ -18,29 +18,22 @@
 package com.app.uistatelib
 
 import com.app.uistatelib.UiState.Failure
-import com.app.uistatelib.model.BaseNetworkResp
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
 /**
  * A discriminated union that encapsulates a successful outcome with a value of type [M]
- * or a failure with a string [Failure.errorCode] representing error case, a nullable [Throwable]
- * exception and few more properties or a loading/initial state of the operation
+ * or a failure with value of type [E]
+ * or a loading/initial state of the operation
  */
-public sealed class UiState<out M> {
+public sealed class UiState<out M, out E> {
 
-    public data class Success<out M>(val value: M) : UiState<M>()
+    public data class Success<out M>(val value: M) : UiState<M, Nothing>()
 
-    public object Loading : UiState<Nothing>()
+    public object Loading : UiState<Nothing, Nothing>()
 
-    public class Failure(
-        public val errorCode: String,
-        public val errorType: Int,
-        public val errorMessage: String,
-        public val displayError: String?,
-        public val throwable: Throwable? = null,
-    ) : UiState<Nothing>()
+    public data class Failure<out E>(val failureValue: E) : UiState<Nothing, E>()
 
     public companion object {
         public const val SERVER_ERROR: Int = 1
@@ -57,10 +50,10 @@ public sealed class UiState<out M> {
  * Note, that this function rethrows any [Throwable] exception thrown by [successBlock] or by [failureBlock] function.
  */
 @OptIn(ExperimentalContracts::class)
-public inline fun <M> UiState<M>.fold(
-    failureBlock: (Failure) -> Unit = { },
+public inline fun <M, E> UiState<M, E>.fold(
+    failureBlock: (failureValue: E) -> Unit = { },
     successBlock: (value: M) -> Unit,
-): UiState<M> {
+): UiState<M, E> {
     contract {
         callsInPlace(failureBlock, InvocationKind.AT_MOST_ONCE)
         callsInPlace(successBlock, InvocationKind.AT_MOST_ONCE)
@@ -73,7 +66,7 @@ public inline fun <M> UiState<M>.fold(
             /* no-op */
         }
         is Failure -> {
-            failureBlock(this)
+            failureBlock(this.failureValue)
         }
     }
     return this
@@ -84,9 +77,9 @@ public inline fun <M> UiState<M>.fold(
  * @return the original `UiState` unchanged.
  */
 @OptIn(ExperimentalContracts::class)
-public inline fun <M> UiState<M>.onSuccess(
+public inline fun <M, E> UiState<M, E>.onSuccess(
     successBlock: (value: M) -> Unit,
-): UiState<M> {
+): UiState<M, E> {
     contract {
         callsInPlace(successBlock, InvocationKind.AT_MOST_ONCE)
     }
@@ -109,9 +102,9 @@ public inline fun <M> UiState<M>.onSuccess(
  * @return the original `UiState` unchanged.
  */
 @OptIn(ExperimentalContracts::class)
-public inline fun <M> UiState<M>.onFailure(
-    failureBlock: (Failure) -> Unit,
-): UiState<M> {
+public inline fun <M, E> UiState<M, E>.onFailure(
+    failureBlock: (failureValue: E) -> Unit,
+): UiState<M, E> {
     contract {
         callsInPlace(failureBlock, InvocationKind.AT_MOST_ONCE)
     }
@@ -123,7 +116,7 @@ public inline fun <M> UiState<M>.onFailure(
             /* no-op */
         }
         is Failure -> {
-            failureBlock(this)
+            failureBlock(this.failureValue)
         }
     }
     return this
@@ -138,9 +131,9 @@ public inline fun <M> UiState<M>.onFailure(
  * See [flatMap] for an alternative that encapsulates exceptions and loading state.
  */
 @OptIn(ExperimentalContracts::class)
-public inline fun <M, T> UiState<M>.map(
+public inline fun <M, T, E> UiState<M, E>.map(
     transform: (M) -> T,
-): UiState<T> {
+): UiState<T, E> {
     contract {
         callsInPlace(transform, InvocationKind.AT_MOST_ONCE)
     }
@@ -163,26 +156,37 @@ public inline fun <M, T> UiState<M>.map(
  * original encapsulated [UiState] if it is [failure][UiState.Failure] or [loading][UiState.Loading].
  *
  * This function catches any [UiState] failure or loading state emitted by [transform] function and encapsulates it as a corresponding [UiState].
+ * In case, when first operation fails then [E] information is lost and generic [Failure] with [Throwable] is thrown.
+ * Message of the thrown [Throwable] is [PREVIOUS_OP_FAILED]
  * See [map] for an alternative that rethrows exceptions from `transform` function.
  */
 @OptIn(ExperimentalContracts::class)
-public inline fun <M, T> UiState<M>.flatMap(
-    transform: (M) -> BaseNetworkResp<T>,
-): UiState<T> {
+public inline fun <M, T, E> UiState<M, E>.flatMap(
+    transform: (M) -> T,
+): UiState<T, Throwable?> {
     contract {
         callsInPlace(transform, InvocationKind.AT_MOST_ONCE)
     }
     return when (this) {
         is UiState.Success -> {
-            tryWithUiState {
+            val result = runCatching {
                 transform(this.value)
+            }
+            if (result.isSuccess) {
+                UiState.Success(result.getOrThrow())
+            } else {
+                Failure(result.exceptionOrNull())
             }
         }
         is UiState.Loading -> {
             this
         }
         is Failure -> {
-            this
+            // Prioritizing Success over failure
+            // In this case we are losing `E` value
+            Failure(failureValue = RuntimeException(PREVIOUS_OP_FAILED))
         }
     }
 }
+
+public const val PREVIOUS_OP_FAILED: String = "previous_op_failed"

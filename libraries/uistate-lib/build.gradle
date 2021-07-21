@@ -23,9 +23,6 @@ group = 'com.github.atulgpt'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-
-    // Retrofit
-    implementation "com.squareup.retrofit2:retrofit:2.9.0"
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
