@@ -21,9 +21,8 @@ apply plugin: 'org.jetbrains.dokka'
 apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.atulgpt'
 
-tasks.named("dokkaGfm") {
-    outputDirectory.set(getProjectDir())
-}
+import com.app.libtron.documentations.ConfigsKt
+ConfigsKt.configureDokka(tasks, getProjectDir())
 
 android {
     compileSdkVersion rootProject.ext.compile_sdk_version
